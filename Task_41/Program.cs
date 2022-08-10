@@ -3,6 +3,11 @@
 //0, 7, 8, -2, -2 -> 2
 //1, -7, -567, 89, 223-> 3
 
+void TextTask()
+{
+    System.Console.WriteLine("Введите с клавиатуры целое число");
+}
+
 
 int NumberValue()
 {
