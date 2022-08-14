@@ -5,18 +5,29 @@
 
 void TextTask()
 {
-    System.Console.WriteLine("Введите с клавиатуры целое число");
+    System.Console.Write("Введите с клавиатуры несколько чисел, через запятую: ");
 }
 
 
-int NumberValue()
+int SumPositiveNumbers(string numbers)
 {
-    int num = Convert.ToInt32(Console.ReadLine());
-    return num;
-}
-
-
-void ExitFunction()
+string[] spliNumbers = numbers.Split(',');
+int sum = 0;
+for (int i = 0; i < spliNumbers.Length; i++)
 {
-    string exitFun = " ";
+    int stringInNumbers = Convert.ToInt32(numbers.Split(',')[i]);
+    if (stringInNumbers > 0) sum++;
 }
+ return sum;
+}
+
+
+void OutSum(int num)
+{
+    System.Console.WriteLine($"Положительных чисел введено - {num}");
+}
+
+
+TextTask();
+string inputNumbers = Console.ReadLine();
+OutSum(SumPositiveNumbers(inputNumbers));
