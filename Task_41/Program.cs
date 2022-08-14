@@ -29,5 +29,7 @@ void OutSum(int num)
 
 
 TextTask();
+
 string inputNumbers = Console.ReadLine();
+
 OutSum(SumPositiveNumbers(inputNumbers));
