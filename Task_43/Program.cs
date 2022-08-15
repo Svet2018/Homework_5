@@ -6,80 +6,42 @@
 
 void TextTask()
 {
-    System.Console.WriteLine($"Чтобы определить точку пересечения двух прямых необходимо ввести значения b1, k1 и значения b2, k2");
+    System.Console.WriteLine($"Необходимо ввести значения коэффициентов и действительных чисел, не равных 0, для двух прямых.");
 }
 
-int InputCoefficient()
+double InputCoefficient()
 {
-    System.Console.Write("Введите с клавиатуры значение коэффициента: "); 
-    int arg = Convert.ToInt32(Console.ReadLine()); 
+    System.Console.Write("Введите с клавиатуры значение коэффициента: ");  
+    double arg = Convert.ToDouble(Console.ReadLine()); 
     return arg;
 }
 
-int InputNumber()
+double InputNumber()
 {
-    System.Console.Write("Введите с клавиатуры значение числа: "); 
-    int arg = Convert.ToInt32(Console.ReadLine()); 
+    System.Console.Write("Введите с клавиатуры значение действительного числа: "); 
+    double arg = Convert.ToDouble(Console.ReadLine()); 
     return arg;
 }
 
-void PrintArray(int [,] array)
-{
-    for(int i = 0; i < array.GetLength(0); i++)
-    {
-        for(int j = 0; j < array.GetLength(1); j++)
-        {
-            System.Console.Write($"{array[i,j]}");
-        }
-        System.Console.WriteLine();
-    }
-}
-
-/*
-//заданных уравнениями y = k1 * x + b1, y = k2 * x + b2;
-
-double [,] myArray= new double [2,2];
-for (int i = 0; i < 2; i++)
-{ 
-    double k = InputCoefficient();
-    double b = InputNumber();     
-}
-
-
-*/
-// Объявляем двумерный массив
-int[,] myArr = new int[2, 2];
-int k = InputCoefficient();
-int b = InputNumber(); 
-// Инициализируем данный массив
-for (int i = 0; i < 2; i++)
-{
-    for (int j = 0; j < 2; j++)
-    {
-       //myArr[i, j ] = k;
-       myArr[i, j] = b;
-       Console.Write("{0}\t", myArr[i, j]);
-    }
-    Console.WriteLine();
-}
-
-
-/*
-double [] GetX(int arg1, int arg2, int arg3, int arg4)
-{
-    double x = (arg4-arg2)/(arg1-arg3);
-    double y = x * arg1 + arg2;
-    double [] xy = new double[] {x , y};
-    //if (arg1 != arg3) 
-    return xy;    
-}
 TextTask();
+System.Console.WriteLine();
 
-InputCoefficient();
-InputNumber();
+double k1 = InputCoefficient();
+double b1 = InputNumber();
+double k2 = InputCoefficient();
+double b2 = InputNumber();
 
-InputCoefficient();
-InputNumber();
+System.Console.WriteLine();
 
-GetX(InputCoefficient(), InputNumber(), InputCoefficient(), InputNumber());
-*/
+if (k1 == k2)
+{
+    System.Console.WriteLine($"Прямые с заданными Вами данными, параллельны друг другу.");
+}
+else
+{
+    double x = (b2 - b1) / (k1 - k2);
+    double y1 = k1 * x + b1;
+    double y2 = k2 * x + b2;
+
+Console.WriteLine($"Координаты пересечения двух прямых: (x = {x.ToString("F02")} ; y = {y2.ToString("F02")})");
+}
